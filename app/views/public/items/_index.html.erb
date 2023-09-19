@@ -4,15 +4,15 @@
       <div style="width: 200px; height: 150px;">
         <%= image_tag item.get_image(200,150) %>
       </div>
-      <% if item.is_sales == false %>
+      <% if item.is_sell == false %>
         <h5 class="text-danger m-0">売り切れ</h5>
       <% end %>
       <h5>
         <%= item.name %>
       </h5>
       <p>
-        <%= number_to_currency(item.price_without_tax, unit: "¥", format: "%u%n") %>
+        <%= number_to_currency(item.with_tax_price, unit: "¥", format: "%u%n") %>
       </p>
     </div>
   <% end %>
-<% end %> 
+<% end %>

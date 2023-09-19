@@ -1,2 +1,36 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<h3>マイページ</h3>
+<h3><strong>登録情報</strong></h3>
+<%= link_to "編集する", information_edit_customers_path, class: 'btn btn-success' %>
+
+<table class="table table-bordered">
+  <tr>
+    <td class="table-active">氏名</td>
+    <td><%= @customer.last_name + "\s" + @customer.first_name %></td>
+  </tr>
+  <tr>
+    <td class="table-active">カナ</td>
+    <td><%= @customer.last_name_kana + "\s" + @customer.first_name_kana %></td>
+  </tr>
+  <tr>
+    <td class="table-active">郵便番号</td>
+    <td><%= @customer.postal_code %></td>
+  </tr>
+  <tr>
+    <td class="table-active">住所</td>
+    <td><%= @customer.address %></td>
+  </tr>
+  <tr>
+    <td class="table-active">電話番号</td>
+    <td><%= @customer.phone_number %></td>
+  </tr>
+   <tr>
+    <td class="table-active">メールアドレス</td>
+    <td><%= @customer.email %></td>
+  </tr>
+  </table>
+
+<h3><strong>配送先</strong></h3>
+<%= link_to "一覧を見る", addresses_path, class: 'btn btn-primary' %>
+
+<h3><strong>注文履歴</strong></h3>
+<%= link_to "一覧を見る", orders_path, class: 'btn btn-primary' %>
