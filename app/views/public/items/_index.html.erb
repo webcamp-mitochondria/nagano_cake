@@ -11,9 +11,9 @@
         <%= link_to item.name, item_path(item) %>
       </h5>
       <p>
+        ¥<%= item.price.to_s(:delimited) %>
         <%#= number_to_currency(item.price_without_tax, unit: "¥", format: "%u%n") %>
       </p>
     </div>
   <% end %>
-  <%#= paginate items, theme: 'bootstrap-5' %>
 <% end %>

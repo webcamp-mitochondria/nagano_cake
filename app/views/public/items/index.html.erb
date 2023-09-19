@@ -8,6 +8,7 @@
         <h2>商品一覧</h2>(全<%= Item.all.count %>件)
       </div>
         <%= render 'index', items: @items %>
+        <%= paginate @all_items %>
     </div>
   </div>
 </div>

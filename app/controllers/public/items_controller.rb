@@ -7,7 +7,7 @@ class Public::ItemsController < ApplicationController
       @items = Item.page(params[:page]).per(8)
     end
 
-    @all_items = Item.all
+    @all_items = Item.all.page(params[:page]).per(8)
     @genres = Genre.all
   end
 
