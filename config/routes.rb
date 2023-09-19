@@ -19,7 +19,7 @@ Rails.application.routes.draw do
         patch 'leave'
       end
     end
-    resources :cart_items, only: [:index, :update, :destroy] do
+    resources :cart_items, only: [:index, :create, :update, :destroy] do
       collection do
         delete 'destroy_all'
       end

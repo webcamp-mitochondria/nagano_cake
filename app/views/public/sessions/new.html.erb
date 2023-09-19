@@ -1,28 +1,34 @@
-<h2>ログイン</h2>
-<h3>会員の方はこちらからログイン</h3>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email, "メールアドレス　" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div class="container mt-3">
+  <h4><span class="login_title col-10 ml-4">ログイン</span></h4>
+  <h5 class="mt-5"><span class="login_title col ml-5">会員の方はこちらからログイン</span></h5>
+  <div class="row">
+    <div class="col-md-8 col-10 mx-auto my-5">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group form-inline">
+          <%= f.label :email, "メールアドレス　" %>
+          <%= f.email_field :email, class:"form-control ml-5 w-50 border border-dark", autofocus: true, autocomplete: "email", :placeholder => "sample@exmple.com" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password, "パスワード　　　" %>
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+        <div class="form-group form-inline">
+          <%= f.label :password, "パスワード　　　" %>
+          <%= f.password_field :password, class:"form-control ml-5 w-50 border border-dark", autocomplete: "current-password" %>
+        </div>
 
-  <!--<% if devise_mapping.rememberable? %>-->
-    <!--<div class="field">-->
-      <!--<%= f.check_box :remember_me %>-->
-      <!--<%= f.label :remember_me %>-->
-    <!--</div>-->
-  <% end %>
-  
-<br> <!-- レイアウト適用時にこのタグを削除 -->
+        <!--<%# if devise_mapping.rememberable? %>-->
+          <!--<div class="field">-->
+            <!--<%#= f.check_box :remember_me %>-->
+            <!--<%#= f.label :remember_me %>-->
+          <!--</div>-->
+        <%# end %>
 
-  <div class="actions">
-    <%= f.submit "ログイン" %>
+        <div class="actions">
+          <%= f.submit "ログイン", class:"btn btn-primary customer-login px-5 py-2" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
-<h3>会員登録がお済みでない方</h3>
-<%= render "public/shared/links" %>から新規登録を行ってください。
+  <h5 class="mt-3"><span class="login_title col-10 ml-5">会員登録がお済みでない方</span></h5>
+  <div class="col-8 my-3 ml-5">
+    <span><strong><%= render "public/shared/links" %>から新規登録を行ってください。</strong></span>
+  </div>
+</div>

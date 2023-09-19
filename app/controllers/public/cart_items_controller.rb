@@ -12,5 +12,8 @@ class Public::CartItemsController < ApplicationController
   end
   
   def create
+    @cart_item = CartItem.new
+    @cart_item.customer_id = current_user.id
+    
   end
 end
