@@ -7,10 +7,18 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>-->
   </head>
 
   <body>
-    <%= yield %>
+    <header class="bar-color">
+      <%= render 'layouts/header' %>
+    </header>
+    <main class="main-background">
+      <%= yield %>
+    </main>
+    <footer class="bar-color">
+      <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>
