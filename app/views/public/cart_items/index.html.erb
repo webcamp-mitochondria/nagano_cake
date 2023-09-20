@@ -1,0 +1,35 @@
+<h2>ショッピングカート</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価（税込）</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart_items.each do |cart_item| %>
+    <tr>
+      <th><%= cart_item.item.name %></th>
+      <th><%= (cart_item.item.price * 1.1).floor %></th>
+      <th><%= cart_item.amount %></th>
+      <th><%= (cart_item.item.price * 1.1).floor * cart_item.amount %></th>
+      <% @total_price += (cart_item.item.price * 1.1).floor * cart_item.amount %>
+      <th></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<table class="table">
+  <tr>
+    <thead>
+      <th>合計金額</th>
+    </thead>
+    <tbody>
+      <th><%= @total_price %></th>
+    </tbody>
+  </tr>
+</table>
+<%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
