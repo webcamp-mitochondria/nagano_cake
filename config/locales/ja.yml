@@ -1,0 +1,21 @@
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      short: "%Y/%m/%d"
+      
+ja:
+  enums:
+    order:
+      status:
+        waiting_payment: "入金待ち"
+        payment_confirmation: "入金確認"
+        in_production: "製作中"
+        preparation_shipping: "発送準備中"
+        shipped: "発送済み"
+    order_detail:
+      production_status:
+        not_ready: "着手不可"
+        ready: "製作待ち"
+        doing: "製作中"
+        done: "製作完了"

@@ -42,7 +42,8 @@ Rails.application.routes.draw do
     resources :items, except: [:destroy]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
-    resources :orders, only: [:show, :update]
+    resources :orders, only: [:index, :show, :update]
+    resources :order_details, only: [:update]
   end
   get "search" => "searches#search"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
