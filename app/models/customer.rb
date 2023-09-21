@@ -10,4 +10,5 @@ class Customer < ApplicationRecord
   validates :postal_code, presence: true
   validates :address, presence: true
   
+  has_many :addresses, dependent: :destroy
 end

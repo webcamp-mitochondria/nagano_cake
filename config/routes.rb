@@ -10,11 +10,10 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
     }
 
-    get "customers" => "customers#show"
-    get "customers/edit" => "customers#edit"
-    patch "customers" => "customers#update"
-    resources :customers, except: [:show, :index, :edit, :new, :create, :destroy, :update] do
+    resource :customers, only: [:show] do
       collection do
+        get 'information/edit' => 'customers#edit'
+        patch 'information' => 'customers#update'
         get 'check'
         patch 'leave'
       end
@@ -44,7 +43,6 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:show, :update]
-
   end
 
 
