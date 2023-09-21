@@ -1,10 +1,10 @@
 <% items.each do |item| %>
   <%= link_to item_path(item), class:"text-reset" do %>
-      <div class="card col-xs-2 mb-5">
+      <div class="card col-xs-2 mb-5 w-25">
         <div class="card-image">
           <%= image_tag item.get_image(200,150) %>
         </div>
-        <div class="card-body">
+        <div class="card-body";>
         <% if item.is_sell == false %>
           <h5 class="text-danger">売り切れ</h5>
         <% end %>
