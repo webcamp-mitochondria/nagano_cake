@@ -12,14 +12,16 @@
   </head>
 
   <body>
-    <header class="bar-color">
-      <%= render 'layouts/header' %>
-    </header>
-    <main class="main-background" style="background-image:url(<%= asset_path "pattern.svg", :size => '30x20' %>);　no-repeat center top; background-size:100%;background-color: #e69a9a52">
-      <%= yield %>
-    </main>
-    <footer class="bar-color" style="background-image:url(<%= asset_path "pattern.svg", :size => '30x20' %>);　no-repeat center top; background-size:100%;background-color:#db000052">
-      <%= render 'layouts/footer' %>
-    </footer>
+    <div class="wrapper">
+      <header class="bar-color">
+        <%= render 'layouts/header' %>
+      </header>
+      <main class="main-background" style="background-image:url(<%= asset_path "pattern.svg", :size => '30x20' %>);　no-repeat center top; background-size:100%;background-color: #e69a9a52">
+        <%= yield %>
+      </main>
+      <footer class="bar-color" style="background-image:url(<%= asset_path "pattern.svg", :size => '30x20' %>);　no-repeat center top; background-size:100%;background-color:#db000052">
+        <%= render 'layouts/footer' %>
+      </footer>
+    </div>
   </body>
 </html>

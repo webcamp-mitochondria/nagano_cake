@@ -11,16 +11,18 @@
           <h5 class="card-title"><%= link_to item.name, item_path(item) %></h5>
           <p class="card-price my-2">¥<%= item.with_tax_price.to_s(:delimited) %></p>
         </div>
-      </div>
+      <!--</div>--> <!--不要な終了タグ-->
       <% if item.is_sell == false %>
         <h5 class="text-danger m-0">売り切れ</h5>
       <% end %>
-      <h5>
-        <%= item.name %>
-      </h5>
-      <p>
-        <%= number_to_currency(item.with_tax_price, unit: "¥", format: "%u%n") %>
-      </p>
+      <!-- 不要なのでは？　--ここから-- -->
+      <!--<h5>-->
+      <!--  <%#= item.name %>-->
+      <!--</h5>-->
+      <!--<p>-->
+      <!--  <%#= number_to_currency(item.with_tax_price, unit: "¥", format: "%u%n") %>-->
+      <!--</p>-->
+      <!-- --ここまで-- -->
     </div>
   <% end %>
 <% end %>
