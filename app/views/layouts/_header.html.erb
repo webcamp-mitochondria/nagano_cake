@@ -1,5 +1,5 @@
 <div class="container-fulid">
-  <div class="row mx-auto">
+  <div class="row mx-auto" style="background-image:url(<%= asset_path "pattern.svg", :size => '30x20' %>);　no-repeat center top; background-size:100%;background-color: #ffbe3ac7">
     <div class="col-3">
       <div class="logo pt-2">
         <%= link_to root_path do %>
@@ -8,8 +8,9 @@
       </div>
     </div>
     <div class="col-3 mt-4 text-right text-light">
-      <% if customer_signed_in?%>          <!--family-->      
-        <p><%= "ようこそ、#{current_customer.last_name}#{current_customer.first_name}さん！" %></p>
+
+      <% if customer_signed_in?%>
+        <p><%= "ようこそ、#{current_customer.last_name}さん！" %></p>
       <% end %>
     </div>
     <div class="col-6">
@@ -20,7 +21,8 @@
           <div class="mr-3 menu"><%= link_to '注文履歴一覧', admin_path, class: "btn btn-outline-light" %></div>
           <div class="mr-3 menu"><%= link_to 'ジャンル一覧', admin_genres_path, class: "btn btn-outline-light" %></div>
           <div class="mr-3 menu"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "btn btn-outline-light" %></div>
-        <% elsif customer_signed_in? %>                   <!--my_page_customers_path-->
+
+        <% elsif customer_signed_in? %>
           <div class="mr-3 menu"><%= link_to 'マイページ', customers_path, class: "btn btn-outline-light" %></div>
           <div class="mr-3 menu"><%= link_to '商品一覧', items_path, class: "btn btn-outline-light" %></div>
           <div class="mr-3 menu"><%= link_to 'カート', cart_items_path, class: "btn btn-outline-light" %></div>
