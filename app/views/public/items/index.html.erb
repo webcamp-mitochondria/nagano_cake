@@ -3,12 +3,16 @@
     <div class='col-md-3'>
       <%= render 'genre_list', genres: @genres %>
     </div>
-    <div class='col-md-8 offset-md-1'>
-      <div>
+    <div class='col-md-9 col-xs-offset-1'>
+      <div class="form-inline">
         <h2>商品一覧</h2>(全<%= Item.all.count %>件)
       </div>
+      <div class="row">
         <%= render 'index', items: @items %>
+      </div>
+      <div class="col-md-5 offset-md-4 py-5">
         <%= paginate @all_items %>
+      </div>
     </div>
   </div>
 </div>
