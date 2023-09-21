@@ -10,16 +10,15 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
     }
 
-    get "customers" => "customers#show"
-    get "customers/edit" => "customers#edit"
-    patch "customers" => "customers#update"
-    resources :customers, except: [:show, :index, :edit, :new, :create, :destroy, :update] do
+    resource :customers, only: [:show] do
       collection do
+        get 'information/edit' => 'customers#edit'
+        patch 'information' => 'customers#update'
         get 'check'
         patch 'leave'
       end
     end
-    resources :cart_items, only: [:index, :update, :destroy] do
+    resources :cart_items, only: [:index, :create, :update, :destroy] do
       collection do
         delete 'destroy_all'
       end
@@ -44,13 +43,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:show, :update]
-
   end
-
-
-
-
-
-
+  get "search" => "searches#search"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
