@@ -3,7 +3,6 @@
     <div class='col-md-3'>
       <%= render 'genre_list', genres: @genres %>
     </div>
-
     <div class='col-md-3 offset-md-1'>
       <%= image_tag @item.get_image(200,150)%>
     </div>
@@ -14,7 +13,6 @@
         <h3>¥<%= @item.with_tax_price.to_s(:delimited) %></h3>
         <p>(税込)</p>
       </div>
-
       
       <%= form_with(model: @cart_item,url: cart_items_path, method: :post,local: true)do |f| %>
         <%= f.label :amount, "個数選択" %>
@@ -24,5 +22,4 @@
       <% end %>
     </div>
   </div>
-
 </div>
