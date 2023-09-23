@@ -1,6 +1,11 @@
 class OrderDetail < ApplicationRecord
   belongs_to :order
-  belongs_to :items
-  
-  enum production_status: { not_ready: 0, ready: 1, doing: 2, done: 3 }
+
+  belongs_to :item
+  enum production_status: {
+      untouched: 0,
+      waiting: 1,
+      working: 2,
+      completed: 3
+  }
 end
