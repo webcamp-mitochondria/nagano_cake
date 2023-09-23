@@ -22,3 +22,13 @@
   grid-template-columns: 100%;
   min-height: 100vh;
 }
+
+.search_form {
+  position: relative;
+}
+
+.search_image {
+  position: absolute;
+  top: 3px;
+  right: 2px;
+}
