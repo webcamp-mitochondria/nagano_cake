@@ -5,7 +5,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.where(customer_id:[current_customer.id])
+    @orders = Order.all
   end
 
   def show
@@ -42,6 +42,7 @@ class Public::OrdersController < ApplicationController
 
   def create
     order = Order.new(order_params)
+    order.customer_id = current_customer.id
     order.save
     @cart_items = current_customer.cart_items.all
 
@@ -55,12 +56,12 @@ class Public::OrdersController < ApplicationController
 
       @order_details.save
     end
-    @cart_items.destroy_all
+    CartItem.destroy_all
     redirect_to '/orders/complete'
   end
   private
   def order_params
-    params.require(:order).permit(:purchase_price, :postal_code, :address, :name, :paymet_method , :delivery_charge, :amount, :status, :total_price)
+    params.require(:order).permit(:postal_code, :address, :name, :payment_method , :delivery_charge, :status, :total_price)
   end
 end
 
