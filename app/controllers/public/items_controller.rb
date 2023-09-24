@@ -1,5 +1,6 @@
 class Public::ItemsController < ApplicationController
   def index
+    @search = "False"
     if params[:genre_id]
       genre = Genre.find(params[:genre_id])
       @items = genre.items
