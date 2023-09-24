@@ -1,4 +1,4 @@
-<div class="container my-3">
+<div class="container py-3">
   
   <div class="col d-flex justify-content-between">
     <h4><span class="page_title">ショッピングカート</span></h4>
@@ -8,8 +8,8 @@
   
   <div class="row">
     <div class="col mx-auto mt-5 mb-3">
-      <table class="table table-hover table-bordered border border-dark">
-        <thead class="thead-light">
+      <table class="table table-hover table-success table-bordered">
+        <thead class="thead-success table-active">
           <tr>
             <th>商品名</th>
             <th>単価（税込）</th>
@@ -52,10 +52,10 @@
       <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
     </div>
     <div class="col-3">
-      <table class="table table-bordered">
+      <table class="table table-bordered table-success">
         <tr>
           <thead>
-            <th class="table-active">合計金額</th>
+            <th class="table-active thead-success">合計金額</th>
             <th><%= @total_price.to_s(:delimited) %></th>
           </thead>
         </tr>

@@ -1,7 +1,7 @@
 @use '~bootstrap/scss/bootstrap';
 
 .page_title {
-  background-color: #ddd;
+  background-color: #99FFCC;
 }
 
 .admin-login {
@@ -14,4 +14,11 @@
 
 .session-content {
   padding-bottom: 150px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  min-height: 100vh;
 }
