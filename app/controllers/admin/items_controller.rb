@@ -1,6 +1,9 @@
 class Admin::ItemsController < ApplicationController
   def index
-    @items = Item.all.order(created_at: :asc).page(params[:page]).per(10)
+
+    @search = "False"
+    @items = Item.page(params[:page]).per(10)
+
   end
 
   def new
