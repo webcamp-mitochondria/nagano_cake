@@ -5,7 +5,9 @@
     </div>
     <div class='col-md-9 col-xs-offset-1'>
       <div class="form-inline">
-        <% if @search == "False" || @word.blank? %>
+        <% if @genre_search == "True" %>
+          <h2><%= @genre.name %>一覧</h2>(全<%= @genre_items_count %>件)
+        <% elsif @search == "False" || @word.blank? %>
           <h2>商品一覧</h2>(全<%= Item.all.count %>件)
         <% else %>
           <h2>商品一覧</h2>　<strong>「<%= @word %>」</strong>の検索結果：全<%= @shearch_count %>件
