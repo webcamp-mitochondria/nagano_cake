@@ -1,32 +1,45 @@
 <div class='container mt-4'>
   <div class='row'>
     <div class="col-12">
-      <h3>注文履歴一覧</h3>
+      <div class="d-flex">
+        <% if @search == "False" || @word.blank? %>
+          <h3 class="ml-5">商品一覧</h3>
+        <% else %>
+          <h3 class="ml-5">商品一覧</h3>　<strong>「<%= @word %>」</strong>の検索結果：全<%= @shearch_count %>件
+        <% end %>
+        <%= link_to "＋", new_admin_item_path, class: 'h1 ml-auto' %>
+      </div>
       <table class="table table-bordered border-bottom">
         <thead>
           <tr>
-            <th class="table-dark col-3">購入日時</th>
-            <th class="table-dark col-3">購入者</th>
-            <th class="table-dark col-3">注文個数</th>
-            <th class="table-dark col-3">注文ステータス</th>
+            <th class="table-dark col-1">商品ID</th>
+            <th class="table-dark col-4">商品名</th>
+            <th class="table-dark col-2">税抜価格</th>
+            <th class="table-dark col-3">ジャンル</th>
+            <th class="table-dark col-2">ステータス</th>
           </tr>
         </thead>
         <tbody>
-        <% @orders.each do |order| %>
-          <tr>
-            <td class="table-light">
-              <%= link_to admin_order_path(order) do %>
-                <%= l order.created_at %>
-              <% end %>
-            </td>
-            <td class="table-light"><%= order.customer.last_name + order.customer.first_name %></td>
-            <td class="table-light"><%= order.order_details.sum(:amount) %></td>
-            <td class="table-light"><%= order.status_i18n %></td>
-          </tr>
-        <% end %>
+
+          <% @items.each do |item| %>
+            <tr>
+              <td class="table-light"><%= item.id %></td>
+              <td class="table-light"><%= link_to item.name, admin_item_path(item) %></td>
+              <td class="table-light"><%= item.price.to_s(:delimited) %></td>
+              <td class="table-light"><%= item.genre.name %></td>
+              <td class="table-light">
+                <% if item.is_sell == true %>
+                  <p class="text-success font-weight-bold">販売中</p>
+                <% else %>
+                  <p class="text-secondary font-weight-bold">販売停止中</p>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+
         </tbody>
       </table>
+      <%= paginate @items %>
     </div>
   </div>
 </div>
-
