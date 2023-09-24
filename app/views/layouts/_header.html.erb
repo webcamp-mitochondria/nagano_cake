@@ -10,7 +10,9 @@
     <div class="col-3 mt-4 text-right text-light">
 
       <% if customer_signed_in?%>
-        <p><%= "ようこそ、#{current_customer.last_name}さん！" %></p>
+      <div class="customer_name mt-3">
+        <span class="text-dark"><%= "ようこそ、#{current_customer.last_name}さん！" %></span>
+      </div>
       <% end %>
     </div>
     <div class="col-6">
