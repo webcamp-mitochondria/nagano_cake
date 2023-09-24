@@ -20,18 +20,18 @@
 
       <% if @addresses.exists? %>
         <table class="table table-bordered">
-          <tr class="table-active">
-            <td>郵便番号</td>
-            <td>住所</td>
-            <td>宛名</td>
-            <td></td>
+          <tr>
+            <td class="table-dark">郵便番号</td>
+            <td class="table-dark">住所</td>
+            <td class="table-dark">宛名</td>
+            <td class="table-dark"></td>
           </tr>
           <% @addresses.each do |address| %>
             <tr>
-              <td><%= address.postal_code %></td>
-              <td><%= address.address %></td>
-              <td><%= address.name %></td>
-              <td class="text-center">
+              <td class="table-light"><%= address.postal_code %></td>
+              <td class="table-light"><%= address.address %></td>
+              <td class="table-light"><%= address.name %></td>
+              <td class="table-light text-center">
                 <%= link_to "編集する", edit_address_path(address), class: 'btn btn-success font-weight-bold' %>
                 <%= link_to "削除する", address_path(address), method: :delete, data: { confirm: "本当に削除してもよろしいですか？" }, class: 'btn btn-danger font-weight-bold' %>
               </td>
