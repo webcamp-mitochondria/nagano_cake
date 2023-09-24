@@ -1,7 +1,9 @@
 class Admin::ItemsController < ApplicationController
   def index
+
     @search = "False"
     @items = Item.page(params[:page]).per(10)
+
   end
 
   def new
