@@ -25,7 +25,7 @@
             <th><%= cart_item.item.with_tax_price.to_s(:delimited) %></th>
             <th>
               <%= form_with(model: cart_item,url: cart_item_path(cart_item), method: :patch) do |f| %>
-                <%= f.select :amount, *[1..20], selected: cart_item.amount %>
+                <%= f.select :amount, *[1..10], selected: cart_item.amount %>
                 <%= f.hidden_field :item_id, :value => cart_item.item_id %>
                 <%= f.submit "変更" ,class: 'btn btn-success btn-sm ml-3' %>
               <% end %>
