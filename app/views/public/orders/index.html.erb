@@ -20,7 +20,7 @@
           </td>
           <td><%= order.address %></td>
           <td>
-            <ul class="list-item" style="list-style: none;">
+            <ul class="list-item" style="list-style: none; padding-left: 0;">
               <% order.order_details.each do |order_detail|  %>
                 <li><%= order_detail.item.name %></li>
               <% end %>

@@ -1,7 +1,9 @@
+
 <div class='container px-auto my-3 px-sm-0'>
   <div class='row d-flex justify-content-between'>
     <div class='col-md-2'>
       <%= render 'public/items/genre_list', genres: @genres %>
+
     </div>
     <div class='col-md-9 col-xs-offset-1'>
       <div class="form-inline">
@@ -17,7 +19,7 @@
         <%= render 'public/items/index', items: @items %>
       </div>
       <div class="col-md-5 offset-md-4 py-5">
-        <%= paginate @all_items %>
+        <%= paginate @all_items, theme: 'bootstrap-5' %>
       </div>
     </div>
   </div>

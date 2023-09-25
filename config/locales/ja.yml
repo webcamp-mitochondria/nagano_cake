@@ -17,6 +17,7 @@ ja:
         working: "製作中"
         completed: "製作完了"
 
+
   # activerecord:
   #   errors:
   #     messages:
@@ -191,6 +192,7 @@ ja:
   #     last_word_connector: "、"
   #     two_words_connector: "、"
   #     words_connector: "、"
+
   time:
     am: 午前
     formats:
