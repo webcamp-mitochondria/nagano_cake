@@ -3,43 +3,48 @@
     <div class="col-3">
       <div class="logo pt-2">
         <%= link_to root_path do %>
-          <%= image_tag 'nagano-cake-logo.png' %>
+          <%= image_tag 'nagano-cake-logo.png', :size => '100x100' %>
         <% end %>
       </div>
     </div>
     <div class="col-3 mt-4 text-right text-light">
 
       <% if customer_signed_in?%>
-        <p><%= "ようこそ、#{current_customer.last_name}さん！" %></p>
+      <div class="customer_name mt-3">
+        <span class="text-dark"><%= "ようこそ、#{current_customer.last_name}さん！" %></span>
+      </div>
       <% end %>
     </div>
     <div class="col-6">
       <div class="row justify-content-end my-2">
         <% if admin_signed_in? %>
-          <div class="mr-3 menu"><%= link_to '商品一覧', admin_items_path, class: "btn btn-outline-light" %></div>
-          <div class="mr-3 menu"><%= link_to '会員一覧', admin_customers_path, class: "btn btn-outline-light" %></div>
-          <div class="mr-3 menu"><%= link_to '注文履歴一覧', admin_path, class: "btn btn-outline-light" %></div>
-          <div class="mr-3 menu"><%= link_to 'ジャンル一覧', admin_genres_path, class: "btn btn-outline-light" %></div>
-          <div class="mr-3 menu"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "btn btn-outline-light" %></div>
+        
+          <div class="mr-3 menu"><%= link_to '商品一覧', admin_items_path, class: "btn btn-light" %></div>
+          <div class="mr-3 menu"><%= link_to '会員一覧', admin_customers_path, class: "btn btn-light" %></div>
+          <div class="mr-3 menu"><%= link_to '注文履歴一覧', admin_path, class: "btn btn-light" %></div>
+          <div class="mr-3 menu"><%= link_to 'ジャンル一覧', admin_genres_path, class: "btn btn-light" %></div>
+          <div class="mr-3 menu"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "btn btn-light" %></div>
+
 
         <% elsif customer_signed_in? %>
-          <div class="mr-3 menu"><%= link_to 'マイページ', customers_path, class: "btn btn-outline-light" %></div>
-          <div class="mr-3 menu"><%= link_to '商品一覧', items_path, class: "btn btn-outline-light" %></div>
-          <div class="mr-3 menu"><%= link_to 'カート', cart_items_path, class: "btn btn-outline-light" %></div>
-          <div class="mr-3 menu"><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "btn btn-outline-light" %></div>
+          <div class="mr-3 menu"><%= link_to 'マイページ', customers_path, class: "btn btn-light" %></div>
+          <div class="mr-3 menu"><%= link_to '商品一覧', items_path, class: "btn btn-light" %></div>
+          <div class="mr-3 menu"><%= link_to 'カート', cart_items_path, class: "btn btn-light" %></div>
+          <div class="mr-3 menu"><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "btn btn-light" %></div>
         <% else %>
-          <div class="mr-3 menu"><%= link_to 'About', about_path, class: "btn btn-outline-light" %></div>
-          <div class="mr-3 menu"><%= link_to '商品一覧', items_path, class: "btn btn-outline-light" %></div>
-          <div class="mr-3 menu"><%= link_to '新規登録', new_customer_registration_path, class: "btn btn-outline-light" %></div>
-          <div class="mr-3 menu"><%= link_to 'ログイン', customer_session_path, class: "btn btn-outline-light" %></div>
+          <div class="mr-3 menu"><%= link_to 'About', about_path, class: "btn btn-light" %></div>
+          <div class="mr-3 menu"><%= link_to '商品一覧', items_path, class: "btn btn-light" %></div>
+          <div class="mr-3 menu"><%= link_to '新規登録', new_customer_registration_path, class: "btn btn-light" %></div>
+          <div class="mr-3 menu"><%= link_to 'ログイン', customer_session_path, class: "btn btn-light" %></div>
         <% end %>
       </div>
-      <div class="row justify-content-end mb-2 mr-1">
-        <% if admin_signed_in? %>
+      <div class="row justify-content-end mt-3 mb-2 mr-1">
+        <%# if admin_signed_in? %>
           <%#= render 'admin/searches/search' %>
-        <% else %>
+        <%# else %>
           <%#= render 'public/searches/search' %>
-        <% end %>
+        <%# end %>
+        <%= render 'layouts/search' %>
       </div>
     </div>
   </div>

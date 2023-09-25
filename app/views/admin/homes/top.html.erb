@@ -1,2 +1,45 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+<div class='container mt-4'>
+  <div class='row'>
+    <div class="col-12">
+      <div class="d-flex">
+        <% if @search == "False" || @word.blank? %>
+          <h3 class="ml-5">商品一覧</h3>
+        <% else %>
+          <h3 class="ml-5">商品一覧</h3>　<strong>「<%= @word %>」</strong>の検索結果：全<%= @shearch_count %>件
+        <% end %>
+        <%= link_to "＋", new_admin_item_path, class: 'h1 ml-auto' %>
+      </div>
+      <table class="table table-bordered border-bottom">
+        <thead>
+          <tr>
+            <th class="table-dark col-1">商品ID</th>
+            <th class="table-dark col-4">商品名</th>
+            <th class="table-dark col-2">税抜価格</th>
+            <th class="table-dark col-3">ジャンル</th>
+            <th class="table-dark col-2">ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <% @items.each do |item| %>
+            <tr>
+              <td class="table-light"><%= item.id %></td>
+              <td class="table-light"><%= link_to item.name, admin_item_path(item) %></td>
+              <td class="table-light"><%= item.price.to_s(:delimited) %></td>
+              <td class="table-light"><%= item.genre.name %></td>
+              <td class="table-light">
+                <% if item.is_sell == true %>
+                  <p class="text-success font-weight-bold">販売中</p>
+                <% else %>
+                  <p class="text-secondary font-weight-bold">販売停止中</p>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+
+        </tbody>
+      </table>
+      <%= paginate @items %>
+    </div>
+  </div>
+</div>

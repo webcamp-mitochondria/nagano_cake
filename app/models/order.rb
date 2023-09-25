@@ -11,4 +11,8 @@ class Order < ApplicationRecord
 
   }
   has_many :order_details, dependent: :destroy
+
+  def billing_amount
+    self.total_price + self.delivery_charge
+  end
 end
