@@ -18,11 +18,13 @@
     <div class="col-6">
       <div class="row justify-content-end my-2">
         <% if admin_signed_in? %>
+        
           <div class="mr-3 menu"><%= link_to '商品一覧', admin_items_path, class: "btn btn-light" %></div>
           <div class="mr-3 menu"><%= link_to '会員一覧', admin_customers_path, class: "btn btn-light" %></div>
           <div class="mr-3 menu"><%= link_to '注文履歴一覧', admin_path, class: "btn btn-light" %></div>
           <div class="mr-3 menu"><%= link_to 'ジャンル一覧', admin_genres_path, class: "btn btn-light" %></div>
           <div class="mr-3 menu"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "btn btn-light" %></div>
+
 
         <% elsif customer_signed_in? %>
           <div class="mr-3 menu"><%= link_to 'マイページ', customers_path, class: "btn btn-light" %></div>
