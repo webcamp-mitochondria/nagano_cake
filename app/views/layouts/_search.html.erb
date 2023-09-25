@@ -1,5 +1,5 @@
 <%= form_with url: search_path, class: "search_form w-50", method: :get do |f| %>
-  <%= f.text_field :word, class: "w-100", placeholder: "Search" ,value: @word %>
+  <%= f.text_field :word, class: "w-100", placeholder: "Search",autocomplete: "off" ,value: @word %>
   <%= image_submit_tag("search25.jpg", class: 'search_image', name: "search") %>
   <%#= button_tag type: "submit", value: "search", class: "btn btn-default" do %>
   <%#= image_tag "search.jpg", size: "25x25", class: "search_image" %>
