@@ -4,6 +4,11 @@ class Admin::CustomersController < ApplicationController
   def index
     @customers = Customer.page(params[:page])
   end
+  
+  def order
+    @customer = Customer.find(params[:id])
+    @orders = @customer.orders.order(created_at: :desc).page(params[:page]).per(10)
+  end
 
   def show
   end
