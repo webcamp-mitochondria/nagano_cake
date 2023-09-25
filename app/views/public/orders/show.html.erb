@@ -27,15 +27,15 @@
       <table class="table">
         <tr>
           <td>商品合計</td>
-          <td><%= @order.total_price - @order.delivery_charge %></td>
+          <td><%= (@order.total_price - @order.delivery_charge).to_s(:delimited) %></td>
         </tr>
         <tr>
           <td>配達料</td>
           <td><%= @order.delivery_charge %></td>
         </tr>
         <tr>
-          <td>ご請求金額</td>
-          <td><%= @order.total_price %></td>
+          <td>請求金額</td>
+          <td><%= @order.total_price.to_s(:delimited) %></td>
         </tr>
       </table>
 
@@ -50,9 +50,9 @@
         <% @order_details.each do |order_detail| %>
         <tr>
           <td><%= order_detail.item.name %></td>
-          <td><%= order_detail.item.with_tax_price %></td>
+          <td><%= order_detail.item.with_tax_price.to_s(:delimited) %></td>
           <td><%= order_detail.amount %></td>
-          <td><%= order_detail.amount * order_detail.item.with_tax_price %></td>
+          <td><%= (order_detail.amount * order_detail.item.with_tax_price).to_s(:delimited) %></td>
         </tr>
         <% end %>
       </table>
