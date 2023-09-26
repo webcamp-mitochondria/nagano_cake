@@ -26,6 +26,7 @@
           <% end %>
         </tbody>
       </table>
+
     <div class="d-flex">
       
       <div class="infomation">
@@ -40,6 +41,7 @@
             <%= @order.name %>
       </div>
       
+
     	<div>
     	 <%= form_with model:@order, url: orders_path do |f| %>
       	 <%= f.hidden_field :postal_code, :value => @order.postal_code %>
@@ -51,7 +53,9 @@
       	 <%= f.hidden_field :status, :value => "waiting" %>
       	 <%= f.submit "注文を確定する", class: "btn btn-info" %>
     	 <% end %>
+
       </div>
+
 
       <table class="table table-secondary table-bordered w-25 offset-4 order_confirm_table">
         <tr>
