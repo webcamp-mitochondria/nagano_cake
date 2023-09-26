@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
     private
 def after_sign_in_path_for(resource_or_scope)
     if resource_or_scope.is_a?(Admin)
-        admin_path
+        admin_orders_path
     else
         root_path #admins_orders_top_path 遷移先ページが実装されたら変更する
     end
