@@ -4,8 +4,8 @@
 このECサイトはDMM WEBCAMP生によるチーム開発課題となっております。実在するお店のサイトではありません。
  
 # DEMO
- 
 
+![スクリーンショット 2023-09-26 140451](https://github.com/webcamp-mitochondria/nagano_cake/assets/138319041/91c97f48-4b26-4ee9-a17c-6e8697af5768)
  
 # Features
  
@@ -46,7 +46,7 @@ rails s
 管理者側のログインページに遷移するためにはURLの後ろに"/admin/sign_in"と入力する必要があります。
 管理者のメールアドレス・パスワードは以下の通りです。dbのseeds.rbでも確認可能です。
 
-* email: 'admin@nagano.com
+* email: 'admin@nagano.com'
 * password: 'admin_pass'
 
 # Author
