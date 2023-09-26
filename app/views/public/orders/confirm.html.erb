@@ -1,7 +1,7 @@
 <div class="container p-3">
   <div class="row">
     <div class="col-md-12">
-    <h3>注文確認<h3>
+    <h3>注文確認</h3>
 
       <table class="table">
         <thead>
@@ -46,15 +46,19 @@
       </table>
 
       <h4>支払い方法</h4>
+      <div class="mb-3">
         <% if @selected_payment_method == "credit_card" %>
           クレジットカード
         <% else %>
           銀行振込
         <% end %>
+      </div>
 
       <h4>お届け先</h4>
+      <div class="mb-3">
         <%= '〒' + @order.postal_code + ' ' + @order.address %><br>
         <%= @order.name %>
+      </div>
     	<div>
     	 <%= form_with model:@order, url: orders_path do |f| %>
       	 <%= f.hidden_field :postal_code, :value => @order.postal_code %>
@@ -66,6 +70,7 @@
       	 <%= f.hidden_field :status, :value => "waiting" %>
       	 <%= f.submit "注文を確定する" %>
     	 <% end %>
+    	</div>
 
     </div>
   </div>
