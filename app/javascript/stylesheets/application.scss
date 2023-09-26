@@ -1,0 +1,46 @@
+@use '~bootstrap/scss/bootstrap';
+
+.page_title {
+  background-color: #99FFCC;
+}
+
+.admin-login {
+  margin-left: 160px;
+}
+
+.customer-login {
+  margin-left: 175px;
+}
+
+.session-content {
+  padding-bottom: 150px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  min-height: 100vh;
+}
+
+.search_form {
+  position: relative;
+}
+
+.search_image {
+  position: absolute;
+  top: 3px;
+  right: 2px;
+}
+
+.customer_name {
+  font-size: 18px;
+}
+
+.infomation {
+  font-size: 18px;
+}
+
+.order_confirm_table {
+  font-size: 20px;
+}

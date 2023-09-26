@@ -3,14 +3,25 @@
   <head>
     <title>NaganoCake</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://kit.fontawesome.com/25efbb1178.js" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <header class="bar-color">
+        <%= render 'layouts/header' %>
+      </header>
+      <main class="main-background" style="background-image:url(<%= asset_path "pattern.svg", :size => '30x20' %>);　no-repeat center top; background-size:100%;background-color: #e69a9a52">
+        <%= yield %>
+      </main>
+      <footer class="bar-color" style="background-image:url(<%= asset_path "pattern.svg", :size => '30x20' %>);　no-repeat center top; background-size:100%;background-color:#db000052">
+        <%= render 'layouts/footer' %>
+      </footer>
+    </div>
   </body>
 </html>

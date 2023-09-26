@@ -1,0 +1,36 @@
+<% items.each do |item| %>
+
+    <div class="card col-xs-2 mb-5 w-25">
+      
+      <div class="card-body";>
+      <% if item.is_sell == false %>
+        <%= image_tag item.get_image(200,150) %>
+        <h5 class="text-danger">売り切れ</h5>
+        <h5><%= item.name%></h5>
+        <p class="card-price my-2">¥<%= item.with_tax_price.to_s(:delimited) %></p>
+      <% else %>
+        <div class="card-image">
+          <%= link_to item_path(item), class:"text-reset" do %>
+            <%= image_tag item.get_image(200,150) %>
+            <h5 class="card-title"><%= link_to item.name, item_path(item) %></h5>
+            <p class="card-price my-2">¥<%= item.with_tax_price.to_s(:delimited) %></p>
+          <% end %>
+        </div>
+      <% end %>
+      </div>
+
+      <!--</div>--> <!--不要な終了タグ-->
+      <%# if item.is_sell == false %>
+        <!--<h5 class="text-danger m-0">売り切れ</h5>-->
+      <%# end %>
+      <!-- 不要なのでは？　--ここから-- -->
+      <!--<h5>-->
+      <!--  <%#= item.name %>-->
+      <!--</h5>-->
+      <!--<p>-->
+      <!--  <%#= number_to_currency(item.with_tax_price, unit: "¥", format: "%u%n") %>-->
+      <!--</p>-->
+      <!-- --ここまで-- -->
+    </div>
+
+<% end %>
