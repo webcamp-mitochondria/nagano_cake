@@ -36,6 +36,7 @@ git clone git@github.com:webcamp-mitochondria/nagano_cake.git
 cd nagano_cake
 rails db:migrate
 rails db:seed
+bundle install
 yarn install
 yarn add @babel/plugin-proposal-private-methods @babel/plugin-proposal-private-property-in-object
 rails s
